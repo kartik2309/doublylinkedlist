@@ -30,12 +30,10 @@ int main()
 				list->delnode(num);
 			}
 			else if (i == 'p') {
-				cout << "List Looks like!" << endl;
 				list->printlist();
 			}
 			else if (i == 'x') {
 				cout << "Stopped!" << endl;
-				cout << "List looks like" << endl;
 				list->printlist();
 				cout << "Press 'x' to exit application and 'c' to continue:";
 				cin >> i;

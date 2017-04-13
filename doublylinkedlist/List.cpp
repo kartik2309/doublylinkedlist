@@ -40,30 +40,39 @@ void List::delnode(int delnum)
 {
 	nodeptr delptr = NULL;
 	curr = head;
-	while (curr != NULL && curr->data != delnum) {
-		curr = curr->next;
-	}
-	if (curr == NULL) {
-		cout << "Your Number was Not to be Found";
-		delete delptr;
-	}
+	if (curr == NULL)
+		cout << "List is already empty!" << endl;
 	else {
-		delptr = curr;
-		if (delptr == head) {
-			head = head->next;
-			delete curr;
-			curr = NULL;
+		while (curr != NULL && curr->data != delnum) {
+			curr = curr->next;
 		}
-		curr->prev->next = curr->next;
+		if (curr == NULL) {
+			cout << "Your Number was Not to be Found" << endl;
+			delete delptr;
+		}
+		else {
+			delptr = curr;
+			if (delptr == head) {
+				head = head->next;
+				delete curr;
+				curr = NULL;
+			}
+			else curr->prev->next = curr->next;
+		}
 	}
 }
 
 void List::printlist()
 {
 	curr = head;
-	while (curr != NULL) {
-		cout << curr->data << endl;
-		curr = curr->next;
+	if (curr == NULL)
+		cout << "List is already empty!" << endl;
+	else {
+		cout << "List Looks like!" << endl;
+		while (curr != NULL) {
+			cout << curr->data << endl;
+			curr = curr->next;
+		}
 	}
 }
 
